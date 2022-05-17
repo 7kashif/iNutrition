@@ -5,11 +5,7 @@
 
 html {
     scroll-behavior: smooth;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-body {
-    background: #eee;
+    font-family: 'Poppins', sans-serif;
 }
 
 ::selection {
@@ -20,16 +16,23 @@ body {
 
 /* styling top nav bar */
 .logo {
-    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 4px 0;
 }
 
 .logo img {
-    width: 60%;
+    height: 40px;
     border: 2px solid yellowgreen;
     border-radius: 50%;
+}
+
+.navTitle .title {
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .title a {
@@ -41,26 +44,24 @@ body {
 
 .navBar {
     display: flex;
-    align-items: center;
-    justify-content: center;
     position: sticky;
     top: 0;
+    justify-content: space-between;
+    align-items: center;
     background-color: white;
-    padding: 4px 30px;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
     z-index: 1000;
+    padding: 0 32px;
 }
 
 .navTitle {
-    width: 50%;
     display: flex;
-    align-items: center;
 }
 
-.navOptions {
-    width: 50%;
+.navOptions ul {
     display: flex;
-    justify-content: end;
+    margin: 0;
+    padding: 0;
 }
 
 .navOptions li {
@@ -80,6 +81,25 @@ body {
     border: 1px solid yellowgreen;
     border-radius: 8px;
     padding: 4px 12px;
+    box-shadow: 0 2px 8px 0 yellowgreen;
+}
+
+.menuButton {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.menuButton .bar {
+    height: 3px;
+    width: 100%;
+    background-color: yellowgreen;
+    border-radius: 10px;
 }
 
 /* styling first information section */
@@ -241,26 +261,65 @@ body {
 
 
 /* media queries */
-@media only screen and (min-width: 580px ) {
+
+@media (max-width: 750px) {
+    .navBar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .menuButton {
+        display: flex;
+    }
+
+
+    .navOptions {
+        display: none;
+        width: 100%;
+    }
+
+    .navOptions ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navOptions ul li {
+        text-align: center;
+    }
+
+    .navOptions ul li a {
+        padding: 8px;
+    }
+
+    .navOption.active {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 580px) {
     .itemCard {
         width: 33%;
     }
+
     .boxMain {
         flex-direction: row;
     }
+
     .about {
         flex-direction: row;
     }
+
     .about p {
         padding: 0 16px;
     }
 }
-@media only screen and (min-width: 880px ) {
+
+@media only screen and (min-width: 880px) {
     .itemCard {
         width: 25%;
     }
 }
-@media only screen and (min-width: 1024px ) {
+
+@media only screen and (min-width: 1024px) {
     .itemCard {
         width: 15%;
     }

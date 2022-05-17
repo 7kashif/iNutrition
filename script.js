@@ -1,6 +1,21 @@
+function main() {
+    setUpResponsiveNavBar()
+    setUpScrollingWithButtons()
+}
+
+function setUpResponsiveNavBar() {
+    const menuButton = document.getElementById('menuButton');
+    const navOptions = document.getElementsByClassName('navOptions')[0];
+
+    menuButton.addEventListener('click', () => {
+        navOptions.classList.toggle('active');
+    })
+}
+
+
 function setUpScrollingWithButtons() {
-    const buttonRight = document.getElementById('slideRight');
-    const buttonLeft = document.getElementById('slideLeft');
+    const buttonRightVegetables = document.getElementById('slideRight');
+    const buttonLeftVegetables = document.getElementById('slideLeft');
     const buttonRightFruits = document.getElementById('slideRightFruits');
     const buttonLeftFruits = document.getElementById('slideLeftFruits');
     const buttonRightMeats = document.getElementById('slideRightMeats');
@@ -8,10 +23,10 @@ function setUpScrollingWithButtons() {
     const buttonRightDrinks = document.getElementById('slideRightDrinks');
     const buttonLeftDrinks = document.getElementById('slideLeftDrinks');
 
-    buttonRight.onclick = function () {
+    buttonRightVegetables.onclick = function () {
         document.getElementById('vegetableItems').scrollLeft += 300;
     };
-    buttonLeft.onclick = function () {
+    buttonLeftVegetables.onclick = function () {
         document.getElementById('vegetableItems').scrollLeft -= 300;
     };
     buttonRightFruits.onclick = function () {
@@ -34,5 +49,5 @@ function setUpScrollingWithButtons() {
     };
 }
 
-window.addEventListener('load', setUpScrollingWithButtons, false)
+window.addEventListener('load', main, false)
 
