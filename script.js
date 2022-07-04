@@ -1,6 +1,7 @@
 function main() {
     setUpResponsiveNavBar()
     setUpScrollingWithButtons()
+    toggleLoginDialog()
 }
 
 function setUpResponsiveNavBar() {
@@ -12,6 +13,19 @@ function setUpResponsiveNavBar() {
     })
 }
 
+function toggleLoginDialog() {
+    const modal = document.querySelector("#loginDialog");
+    const openModal = document.querySelector(".profileButton");
+    const closeModal = document.querySelector(".continueButton");
+
+    openModal.addEventListener("click", () => {
+        modal.showModal();
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.close();
+    });
+}
 
 function setUpScrollingWithButtons() {
     const buttonRightVegetables = document.getElementById('slideRight');

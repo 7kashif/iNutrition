@@ -232,6 +232,28 @@ html {
     cursor: pointer;
 }
 
+.profileButton {
+    background: none;
+    border: none;
+    color: yellowgreen;
+    cursor: pointer;
+}
+
+/* login dialog style */
+#loginDialog {
+    display: flex;
+    flex-direction: column;
+    position: center;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -100px;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+}
+
 
 /* styling about section */
 .about {
@@ -239,7 +261,7 @@ html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
 }
 
 .about img {
@@ -260,43 +282,132 @@ html {
 }
 
 
-/* media queries */
+/* flipping list view */
 
-@media (max-width: 750px) {
-    .navBar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .menuButton {
-        display: flex;
-    }
-
-
-    .navOptions {
-        display: none;
-        width: 100%;
-    }
-
-    .navOptions ul {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .navOptions ul li {
-        text-align: center;
-    }
-
-    .navOptions ul li a {
-        padding: 8px;
-    }
-
-    .navOption.active {
-        display: flex;
-    }
+.flipItemsList {
+    width: 100%;
+    padding: 16px 16px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
 }
+
+.flipItemsList::-webkit-scrollbar {
+    display: none;
+}
+
+.flipCard {
+    flex: 0 0 auto;
+    background-color: transparent;
+    background: none;
+    width: 100%;
+    min-height: 300px;
+    margin-right: 24px;
+    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 16px;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    transition: top ease 0.5s;
+}
+
+.innerFlipCard {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    display: flex;
+
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .3);
+    border: 2px solid white;
+    border-radius: 8px;
+}
+
+.flipCard:hover .innerFlipCard {
+    transform: rotateY(180deg);
+}
+
+.frontSide, .backSide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.backSide {
+    flex-direction: column;
+    cursor: pointer;
+    transform: rotateY(180deg);
+}
+
+.frontSide {
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.innerFlipCard img {
+    width: 100%;
+    height: 70%;
+}
+
+#itemDetails {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.itemOverview {
+    margin-top: 16px;
+}
+
+#itemDetails div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#itemDetails .mineralTitle {
+    color: gray;
+    margin-right: 8px;
+}
+
+/* credits  */
+
+.line {
+    display: block;
+    height: 2px;
+    margin: 0 16px;
+    background-color: yellowgreen;
+}
+
+.developer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+/* media queries */
 
 @media only screen and (min-width: 580px) {
     .itemCard {
+        width: 33%;
+    }
+
+    .flipCard {
         width: 33%;
     }
 
@@ -317,10 +428,52 @@ html {
     .itemCard {
         width: 25%;
     }
+
+    .flipCard {
+        width: 25%;
+    }
+}
+
+@media (max-width: 750px) {
+    .navBar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menuButton {
+        display: flex;
+    }
+
+
+    .navOptions {
+        display: none;
+    }
+
+    .navOptions ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navOptions ul li {
+        text-align: center;
+    }
+
+    .navOptions ul li a {
+        padding: 8px;
+    }
+
+    .navOption.active {
+        display: flex;
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
     .itemCard {
         width: 15%;
+    }
+
+    .flipCard {
+        width: 18%;
     }
 }

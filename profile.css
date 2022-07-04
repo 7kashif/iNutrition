@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+::selection {
+    background-color: yellowgreen;
+    color: white;
+}
+
+p {
+    margin: 8px 0 0 0;
+}
+
+/* profile page style start from here */
+.mainBody {
+    display: flex;
+    flex-direction: row;
+    margin: 16px 32px;
+    padding: 16px 0;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
+}
+
+.personInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+
+}
+
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.profilePicture {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+.profilePicture img {
+    width: 100%;
+    height: 100%;
+    margin: 0 0 16px 0;
+}
+
+.profileInfo .name {
+    font-weight: bold;
+    color: yellowgreen;
+}
+
+.profileInfo .otherInfo {
+    color: darkgray;
+}
+
+.nutritionDetails {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.nutritionDetails .detailText {
+    font-size: xx-large;
+    color: yellowgreen;
+}
+
+
